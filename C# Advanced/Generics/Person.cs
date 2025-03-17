@@ -9,7 +9,10 @@ namespace C__Advanced.Generics
 {
     internal class Person : IEnumerable<PayItem>
     {
-      
+        public Person()
+        {
+
+        }
         public Person(string name)
         {
             Name = name;
