@@ -61,3 +61,28 @@ foreach (var std in student.IdsReverse())
     Console.Write(std + ",");
 }
 
+Console.WriteLine("--------------------- Linq Join and Grouping ------------------");
+var manageLINQ = new ManageLINQ();
+Console.WriteLine("Get Employees With Dept using JOIN \n ");
+foreach (var item in manageLINQ.GetEmployeeWithDeptJOIN())
+{
+    Console.WriteLine(item);
+
+}
+Console.WriteLine("------------");
+Console.WriteLine("Get Employees With Dept using Grouping with Join \n ");
+foreach (var item in manageLINQ.GetEmployeeWithDeptGrouping())
+{
+    var employess = string.Join(", ", item.Select(x => x.Name).ToList());
+    Console.WriteLine($"{item.Key} : {employess}");
+}
+
+Console.WriteLine("------------");
+Console.WriteLine("Get Employees With Dept using Method  GroupJoin \n ");
+var groupJoinTuples = manageLINQ.GetEmployeeWithDeptGroupJoin().ToList();
+foreach (var tuple in groupJoinTuples)
+{
+    var employeeNames = string.Join(", ", tuple.Item2.Select(x => x.Name).ToList());
+    Console.WriteLine($"{tuple.Item1} : {employeeNames}");
+}
+
