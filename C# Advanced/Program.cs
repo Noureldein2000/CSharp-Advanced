@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using C__Advanced.Generics;
 using C__Advanced.LINQ;
+using C__Advanced.Operator_Overloading;
+using System.Drawing;
 using System.Threading.Channels;
 
 Console.WriteLine("Hello, World of Generics!\n");
@@ -85,4 +87,21 @@ foreach (var tuple in groupJoinTuples)
     var employeeNames = string.Join(", ", tuple.Item2.Select(x => x.Name).ToList());
     Console.WriteLine($"{tuple.Item1} : {employeeNames}");
 }
+Console.WriteLine("--------------------- Operator Overloading ------------------");
+var p1 = new CustomPoint(50, 100);
+var p2 = new CustomPoint(30, 120);
+var p3 = p1 + p2;
+Console.WriteLine($"p3 = {p3.X}{p3.Y}");
+var p4 = p2 - p1;
+Console.WriteLine($"p4 = {p4.X}{p4.Y}");
+
+Console.WriteLine($"p1 > p2 ?({p1 > p2})");
+
+Console.WriteLine($"p1 < p2 ?({p1 < p2})");
+
+Console.WriteLine($"p1 == p2 ?({p1 == p2})");
+
+CustomPoint p = (CustomPoint)5;
+int x = new CustomPoint(6, 7);
+
 
